@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@ckeditor/ckeditor5-basic-styles": "^40.2.0",
+    "@ckeditor/ckeditor5-build-classic": "^40.2.0",
     "@ckeditor/ckeditor5-dev-utils": "^39.5.1",
     "@ckeditor/ckeditor5-editor-classic": "^40.2.0",
     "@ckeditor/ckeditor5-essentials": "^40.2.0",

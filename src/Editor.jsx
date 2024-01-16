@@ -1,10 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-// import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials";
-// import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold";
-// import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic";
-// import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph";
-
 function Editor({ onChange, editorLoaded, name, value }) {
   const editorRef = useRef();
   const { CKEditor, ClassicEditor } = editorRef.current || {};
@@ -24,11 +19,6 @@ function Editor({ onChange, editorLoaded, name, value }) {
           name={name}
           editor={ClassicEditor}
           config={{
-            ckfinder: {
-              // Upload the images to the server using the CKFinder QuickUpload command
-              // You have to change this address to your server that has the ckfinder php connector
-              uploadUrl: "" //Enter your upload url
-            }
             // plugins: [Essentials, Bold, Italic, Paragraph],
             // toolbar: ["bold", "italic"],
           }}
