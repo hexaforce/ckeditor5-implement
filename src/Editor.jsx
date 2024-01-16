@@ -13,9 +13,10 @@ function Editor({ onChange, editorLoaded, name, value }) {
     editorRef.current = {
       CKEditor: require("@ckeditor/ckeditor5-react").CKEditor, // v3+
       ClassicEditor: require("@ckeditor/ckeditor5-build-classic")
+      // ClassicEditor: require("@ckeditor/ckeditor5-editor-classic/src/classiceditor")
     };
   }, []);
-
+  
   return (
     <div>
       {editorLoaded ? (
@@ -24,13 +25,14 @@ function Editor({ onChange, editorLoaded, name, value }) {
           name={name}
           editor={ClassicEditor}
           config={{
+            // plugins: [Essentials, Bold, Italic, Paragraph],
+            // toolbar: ["bold", "italic"],
+            // toolbar: [],
             ckfinder: {
               // Upload the images to the server using the CKFinder QuickUpload command
               // You have to change this address to your server that has the ckfinder php connector
               uploadUrl: "" //Enter your upload url
             }
-            // plugins: [Essentials, Bold, Italic, Paragraph],
-            // toolbar: ["bold", "italic"],
           }}
           data={value}
           onChange={(event, editor) => {
@@ -38,11 +40,17 @@ function Editor({ onChange, editorLoaded, name, value }) {
             // console.log({ event, editor, data })
             onChange(data);
           }}
-          onBlur={(event, editor) => {
-            console.log("Blur.", editor);
+          onReady={(event, editor) => {
+            console.log("Ready.", editor);
           }}
           onFocus={(event, editor) => {
             console.log("Focus.", editor);
+          }}
+          onBlur={(event, editor) => {
+            console.log("Blur.", editor);
+          }}
+          onError={(event, editor) => {
+            console.log("Error.", editor);
           }}
         />
       ) : (
