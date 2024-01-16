@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 import Editor from "./Editor";
 
+const LOCAL_STORAGE_KEY = "CKEDITOR_CS_CONFIG";
+
 export default function App() {
   const [editorLoaded, setEditorLoaded] = useState(false);
   const [data, setData] = useState("");
@@ -15,7 +17,6 @@ export default function App() {
       <h1>ckEditor 5</h1>
 
       <Editor
-        name="description"
         onChange={(data) => {
           setData(data);
         }}
